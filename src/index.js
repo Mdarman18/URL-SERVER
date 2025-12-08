@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 import cors from "cors";
 app.use(cors({
   origin: [
-    "https://url-frontend-joyx.vercel.app/", // your deployed frontend
+    "*", // your deployed frontend
     "http://localhost:5173" // development frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
