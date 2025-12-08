@@ -13,12 +13,17 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 import cors from "cors";
+// --- CORS setup ---
 app.use(
   cors({
-    origin: "*", // just a string, NOT in array
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "*", // allow all origins, works for Vercel frontend
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS for preflight
+    allowedHeaders: ["Content-Type", "Authorization"], // allow common headers
   })
 );
+
+// Handle preflight OPTIONS requests
+app.options("*", cors());
 
 // -=========routes-=====================
 app.get("/", (req, res) => {
