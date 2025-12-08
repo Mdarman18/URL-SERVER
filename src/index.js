@@ -4,7 +4,7 @@ const app = express();
 import dotenv from "dotenv";
 import connectDB from "./connections/connections.js";
 import new2 from "./routes/routes.js";
-dotenv.config({ path: "../.env" });
+dotenv.config();
 const port = process.env.PORT || 3100;
 
 // --=============connection to db-==================
@@ -14,9 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 import cors from "cors";
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
+  origin: [
+    "https://url-frontend-theta.vercel.app", // your deployed frontend
+    "http://localhost:5173" // development frontend
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true // if sending cookies
 }));
 
 // -=========routes-=====================
