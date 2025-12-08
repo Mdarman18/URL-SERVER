@@ -13,13 +13,12 @@ connectDB();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 import cors from "cors";
-app.use(cors({
-  origin: [
-    "*", // your deployed frontend
-    "http://localhost:5173" // development frontend
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}));
+app.use(
+  cors({
+    origin: "*", // just a string, NOT in array
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 // -=========routes-=====================
 app.get("/", (req, res) => {
