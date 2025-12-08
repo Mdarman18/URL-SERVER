@@ -39,22 +39,24 @@ import new2 from "./routes/routes.js";
 import microCors from "micro-cors";
 
 const app = express();
+
+// ✅ CORS for all origins
 const cors = microCors({
   origin: "*",
   allowMethods: ["GET","POST","PUT","DELETE","OPTIONS"],
 });
 
-// Connect to MongoDB
-connectDB().catch(err => console.error("MongoDB connection failed:", err));
+// ✅ Connect MongoDB (singleton)
+await connectDB(); 
 
-// Middlewares
+// ✅ Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors);
 
-// Routes
+// ✅ Routes
 app.get("/", (req, res) => res.send("success"));
 app.use("/api", new2);
 
-// Export app for Vercel serverless
+// ✅ Export app (no app.listen for serverless)
 export default app;
