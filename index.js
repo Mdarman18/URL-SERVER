@@ -16,7 +16,7 @@ import cors from "cors";
 // --- CORS setup ---
 app.use(
   cors({
-    origin: "https://url-frontend-joyx.vercel.app",
+    origin: "https://url-frontend-ashen.vercel.app/",
     credentials: true,
   })
 );
@@ -26,7 +26,5 @@ app.get("/", (req, res) => {
   res.send("success");
 });
 app.use("/api", new2);
-// app.listen(port, () => {
-//   console.log(`running ${port}`);
-// });
+// app.listen(port)
 export default app;
