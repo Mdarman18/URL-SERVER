@@ -16,7 +16,7 @@ import cors from "cors";
 // --- CORS setup ---
 app.use(
   cors({
-    origin: "https://url-frontend-ashen.vercel.app/",
+    origin: "https://url-frontend-ashen.vercel.app",
     credentials: true,
   })
 );
