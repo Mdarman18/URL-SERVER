@@ -45,7 +45,7 @@ export const HandleRequest = async (req, res) => {
       { new: true }
     );
     if (!entry) return res.status(404).json({ error: "ShortId not found" });
-    res.redirect(entry.redirectUrl);
+     res.json({ redirectUrl: entry.redirectUrl });
     console.log(entry);
   } catch (err) {
     console.error(err);
