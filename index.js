@@ -16,7 +16,8 @@ import cors from "cors";
 // --- CORS setup ---
 app.use(
   cors({
-    origin: "https://url-frontend-ashen.vercel.app",
+    origin:
+      "https://url-frontend-ic8nh80mk-md-armans-projects-b37fe898.vercel.app/",
     credentials: true,
   })
 );
@@ -27,4 +28,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api", new2);
 // app.listen(port)
+// app.listen(port, () => {
+//   console.log(`http://localhost:${port}`);
+// });
 export default app;
