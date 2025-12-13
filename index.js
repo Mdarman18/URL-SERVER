@@ -17,7 +17,7 @@ import cors from "cors";
 app.use(
   cors({
     origin:
-      "https://url-frontend-rho.vercel.app/",
+      "https://url-frontend-rho.vercel.app",
     credentials: true,
   })
 );
